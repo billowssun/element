@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>完整版化学元素周期表 (118元素)</title>
+    <link rel="stylesheet" href="./src/styles.css">
+</head>
+<body>
+
+    <h1>完整化学元素周期表</h1>
+
+    <div class="legend">
+        <div class="legend-item"><div class="dot" style="background:var(--c-alkali)"></div>碱金属</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-alkaline)"></div>碱土金属</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-transition)"></div>过渡金属</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-lanthanide)"></div>镧系</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-actinide)"></div>锕系</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-post-trans)"></div>贫金属</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-metalloid)"></div>类金属</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-nonmetal)"></div>非金属</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-halogen)"></div>卤素</div>
+        <div class="legend-item"><div class="dot" style="background:var(--c-noble)"></div>稀有气体</div>
+    </div>
+
+    <div class="periodic-table" id="grid-container"></div>
+
+    <div class="modal-overlay" id="modal">
+        <div class="modal-content" id="m-content">
+            <button class="close-btn" id="close-modal" type="button">&times;</button>
+            <div class="modal-header">
+                <div class="modal-big-symbol" id="m-sym">H</div>
+                <div class="modal-text">
+                    <h2 id="m-name">氢</h2>
+                    <span class="modal-cat" id="m-cat">非金属</span>
+                </div>
+            </div>
+            <div class="modal-details">
+                <p><strong>原子序数：</strong> <span id="m-num">1</span></p>
+                <p><strong>相对原子质量：</strong> <span id="m-mass">1.008</span></p>
+                <p><strong>电子排布：</strong> <span id="m-config">1s¹</span></p>
+                <p><strong>英文名：</strong> <span id="m-eng">Hydrogen</span></p>
+                <p><strong>简介：</strong> <span id="m-desc">...</span></p>
+            </div>
+        </div>
+    </div>
+<script type="module" src="./src/app.js"></script>
+</body>
+</html>
+
