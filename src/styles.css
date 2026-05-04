@@ -2,6 +2,8 @@
             --bg-color: #10101a;
             --card-bg: #1f1f2e;
             --text-color: #ffffff;
+            --element-size: 58px;
+            --table-gap: 6px;
             
             /* 元素分类颜色体系 */
             --c-alkali: #ff4d4d;       /* 碱金属 - 红 */
@@ -27,9 +29,13 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
 
-        h1 { margin-bottom: 10px; letter-spacing: 2px; }
+        *, *::before, *::after { box-sizing: inherit; }
+
+        h1 { margin-bottom: 10px; letter-spacing: 2px; text-align: center; }
         
         /* 图例样式 */
         .legend {
@@ -48,14 +54,19 @@
         .periodic-table {
             display: grid;
             /* 18列，每列宽度自适应，最小55px */
-            grid-template-columns: repeat(18, 58px);
+            grid-template-columns: repeat(18, var(--element-size));
             /* 10行 (7主行 + 1空行 + 2镧/锕系) */
-            grid-template-rows: repeat(10, 58px); 
-            gap: 6px;
+            grid-template-rows: repeat(10, var(--element-size)); 
+            gap: var(--table-gap);
+            width: 100%;
+            max-width: 1186px;
             padding: 20px;
             background: rgba(255,255,255,0.02);
             border-radius: 10px;
             overflow-x: auto; /* 允许小屏幕横向滚动 */
+            overflow-y: hidden;
+            justify-content: start;
+            -webkit-overflow-scrolling: touch;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
@@ -122,3 +133,93 @@
         .modal-cat { padding: 4px 8px; border-radius: 4px; font-size: 12px; display: inline-block; color: #000; font-weight: bold; }
         .modal-details p { margin: 8px 0; font-size: 14px; line-height: 1.5; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 5px; }
         .modal-details strong { color: #bdc3c7; }
+
+        @media (max-width: 720px) {
+            :root {
+                --element-size: 44px;
+                --table-gap: 4px;
+            }
+
+            body {
+                padding: 12px;
+                align-items: stretch;
+            }
+
+            h1 {
+                font-size: 22px;
+                line-height: 1.25;
+                margin: 4px 0 12px;
+                letter-spacing: 1px;
+            }
+
+            .legend {
+                justify-content: flex-start;
+                gap: 8px 10px;
+                margin-bottom: 12px;
+                font-size: 11px;
+            }
+
+            .legend-item {
+                margin-right: 0;
+            }
+
+            .periodic-table {
+                padding: 12px;
+                border-radius: 8px;
+            }
+
+            .element {
+                padding: 3px;
+                min-width: 0;
+            }
+
+            .atomic-number {
+                font-size: 8px;
+            }
+
+            .symbol {
+                font-size: 14px;
+            }
+
+            .name {
+                max-width: 100%;
+                font-size: 8px;
+                text-overflow: ellipsis;
+            }
+
+            .modal-overlay {
+                align-items: flex-start;
+                padding: 16px 0;
+                overflow-y: auto;
+            }
+
+            .modal-content {
+                width: calc(100vw - 24px);
+                max-width: none;
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .modal-header {
+                align-items: center;
+                padding-right: 28px;
+            }
+
+            .modal-big-symbol {
+                width: 72px;
+                height: 72px;
+                flex: 0 0 72px;
+                margin-right: 14px;
+                font-size: 44px;
+            }
+
+            .modal-text h2 {
+                font-size: 24px;
+            }
+        }
+
+        @media (hover: none) {
+            .element:hover {
+                transform: none;
+            }
+        }
