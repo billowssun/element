@@ -50,6 +50,15 @@
         .legend-item { display: flex; align-items: center; margin-right: 10px; }
         .dot { width: 12px; height: 12px; border-radius: 3px; margin-right: 5px; }
 
+        .table-scroll {
+            width: 100%;
+            max-width: 1186px;
+            overflow-x: auto;
+            overflow-y: hidden;
+            border-radius: 10px;
+            -webkit-overflow-scrolling: touch;
+        }
+
         /* 周期表网格布局 */
         .periodic-table {
             display: grid;
@@ -58,15 +67,12 @@
             /* 10行 (7主行 + 1空行 + 2镧/锕系) */
             grid-template-rows: repeat(10, var(--element-size)); 
             gap: var(--table-gap);
-            width: 100%;
-            max-width: 1186px;
+            width: max-content;
+            min-width: max-content;
             padding: 20px;
             background: rgba(255,255,255,0.02);
             border-radius: 10px;
-            overflow-x: auto; /* 允许小屏幕横向滚动 */
-            overflow-y: hidden;
             justify-content: start;
-            -webkit-overflow-scrolling: touch;
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
