@@ -1,3 +1,7 @@
+<!-- project-overview:start -->
+> **项目简介**：交互式化学元素周期表，展示元素资料并提供浏览与筛选，适合基础化学学习和快速查阅。
+<!-- project-overview:end -->
+
 # element.pddshop.cc
 
 一个可直接部署到 Vercel 的静态化学元素周期表页面。
